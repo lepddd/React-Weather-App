@@ -1,16 +1,20 @@
 import { useState } from 'react'
+import WeatherCard from './components/WeatherCard';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">
-        Welcome!
-      </p>
-      <p className="text-gray-500 text-lg">
-        React and Tailwind CSS in action
-      </p>
+    <div className='bg-neutral-300 min-h-screen p-1 flex justify-center items-center'>
+      <div className='grid grid-cols-2 grid-rows-4 gap-1 bg-slate-400 w-fit'>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={true}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      <WeatherCard day={"2022-09-15"} temp={'16°C'} now={false}/>
+      </div>
     </div>
   );
 }
