@@ -9,7 +9,6 @@ function App() {
 
   async function getData(city) {
     dispatch({ type: "FETCH_START" });
-    console.log(state.weather);
     try {
       const res = await axios.get(
         `http://hide-heroku-api.herokuapp.com/weather2?city=${city}`
@@ -24,7 +23,6 @@ function App() {
         };
       });
       dispatch({ type: "FEATCH_SUCCESS", payload: data });
-      console.log(res.data);
     } catch (error) {
       dispatch({ type: "FETCH_ERROR" });
       console.log(error.message);
