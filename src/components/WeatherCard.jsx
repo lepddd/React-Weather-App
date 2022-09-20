@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { Icon } from "@iconify/react";
 
-const WeatherCard = ({ temp, day, icon, now }) => {
+const WeatherCard = ({ temp, day, icon, now, reset }) => {
   const [weekDay, setWeekDay] = useState("");
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -17,14 +18,24 @@ const WeatherCard = ({ temp, day, icon, now }) => {
     <div
       className={`relative flex justify-between items-center rounded ${
         now
-          ? "py-11 px-6 bg-gradient-to-b from-neutral-800 to-neutral-900 col-span-2 h-fit self-end sm:col-span-1 sm:row-span-2 sm:h-full sm:flex-col md:py-14 md:px-8 transition-all"
+          ? "py-11 px-6 bg-gradient-to-b from-neutral-800 to-neutral-900 col-span-2 h-full self-end sm:col-span-1 sm:row-span-2 sm:h-full sm:flex-col md:py-14 md:px-8 transition-all"
           : "px-11 py-5 flex-col bg-neutral-50 gap-3.5 justify-self-center md:px-14 md:py-7 transition-all"
       }`}
     >
       {now && (
-        <p className="absolute top-3 left-3 flex text-xs font-bold text-neutral-50 p-1 rounded bg-blue-500 ">
-          NOW
-        </p>
+        <div className="flex items-center justify-between absolute top-5 left-0 w-full px-5 sm:px-3 sm:top-3">
+          <button onClick={reset}>
+            <Icon
+              icon="ep:d-arrow-left"
+              color="#fafafa"
+              width="24"
+              height="24"
+            />
+          </button>
+          <p className="text-xs font-bold text-neutral-50 p-1 rounded bg-blue-500 ">
+            NOW
+          </p>
+        </div>
       )}
       <p
         className={`font-sans  ${

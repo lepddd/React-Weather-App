@@ -24,6 +24,12 @@ export const weatherReducer = (state, action) => {
         error: true,
         weather: {},
       };
+    case "RESET_CITY":
+      return {
+        loading: false,
+        error: false,
+        weather: {},
+      };
     default:
       return state;
   }
